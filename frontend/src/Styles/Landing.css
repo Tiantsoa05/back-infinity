@@ -1,0 +1,28 @@
+.banner1{
+    height: 50vh;
+    width: 100%;
+    background-color: rgb(13, 13, 37);
+}
+.header button{
+    float: right;
+}
+
+.banner2{
+    height: 40vh;
+    width: 100%;
+    background-color: rgb(248, 238, 238);
+}
+.explication{
+    width: 40%;
+    float: left;
+    text-align: justify;
+}
+.images{
+    float: right;
+    margin-top: -10vh;
+}
+.temoignage{
+    height: 40vh;
+    width: 100%;
+    background-color: rgb(13, 13, 37);
+}

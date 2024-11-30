@@ -1,0 +1,106 @@
+.InscriForm {
+    width: 40vw; 
+    margin-left: 14vw;
+    padding: 30px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    /*justify-content: flex-end;
+    align-items: center;*/
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+    justify-content: space-around;
+    margin-top: 2vh;
+    font-family: sans-serif;
+    background: linear-gradient(to right, #e4e2e2, transparent);
+  }
+  
+  .titre h2 {
+    text-align: left;
+    /*margin-bottom: 20px;*/
+    text-align: center;
+  }
+  .InscriForm form{
+    /* background-color: red; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /* align-items: center; */
+    gap: 2px;
+    height: 80%;
+  }
+  
+  .InscriForm label {
+    display: block;
+    margin-bottom: 2px;
+    font-weight: bold;
+  }
+  
+  .InscriForm input[type="text"],
+  .InscriForm input[type="email"],
+  .InscriForm input[type="password"] {
+    width: 100%;
+    padding: 2px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box; /
+  }
+  
+  .InscriForm input[type="text"]:focus,
+  .InscriForm input[type="email"]:focus,
+  .InscriForm input[type="password"]:focus {
+    border: 1px solid #555;
+    outline: none;
+  }
+  
+  .InscriForm button {
+    background-color: #4CAF50; /* Green color */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 15px;
+    font-weight: bold;
+    margin-left: 25%;
+    width: 50%;
+  }
+  
+  .InscriForm button:hover {
+    background-color: #46a049; /* Darker green on hover */
+  }
+  
+  .InscriForm p {
+    color: red;
+    text-align: center;
+  }
+
+  .inscrire {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .illustrations {
+    width: 50px;
+    height: 20%;
+  }
+
+  .illustrations img {
+    width: 30vw;
+    height: 30vh;
+    animation-name: tourne;
+    animation-duration: 5s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+  }
+
+  @keyframes tourne {
+    from {
+      transform: rotateY(0deg);
+    }
+    to {
+      transform: rotateY(360deg);
+    }
+  }
