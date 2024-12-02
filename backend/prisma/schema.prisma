@@ -28,7 +28,7 @@ model Professeur {
   langue      Langue    @relation(fields: [id_langue], references: [id])
   cours       Cours[]
   groupe      Groupe[]
-  Chat        Chat[]
+  payment     Payment[]
 }
 
 model Niveau{
@@ -45,8 +45,6 @@ model Groupe {
   id_professeur   Int
   professeur      Professeur   @relation(fields: [id_professeur], references: [id])
   niveau          Niveau       @relation(fields: [id_niveau], references: [id])
-  etudiant        Etudiant[]
-  forum_messages  ForumMessage[]
 }
 
 model Cours {
@@ -65,30 +63,20 @@ model Etudiant {
   nom             String
   prenoms         String
   mail_etudiant  String
-  id_groupe       Int
-  groupe          Groupe      @relation(fields: [id_groupe], references: [id])
-  Chat            Chat[]
+  motDePasse       String
+  id_groupe       Int?
+  id_professeur   Int
+  payments   Payment[]
 }
 
-model ForumMessage {
-  id              Int      @id @default(autoincrement())
-  id_sender       String
-  message         String
-  message_time    DateTime
-  id_groupe       Int
-  groupe          Groupe      @relation(fields: [id_groupe], references: [id])
-}
+model Payment {
+  id             Int       @id @default(autoincrement())
+  montant        Float    
+  date           DateTime  @default(now())  
 
-// Chat prof etudiant
+  id_etudiant    Int       
+  etudiant       Etudiant  @relation(fields: [id_etudiant], references: [id])
 
-model Chat {
-  id              Int      @id @default(autoincrement())
-  message         String
-  id_prof         Int
-  id_etudiant     Int
-  date_sent       DateTime @default(now())
-  send_type       Int
-
-  prof           Professeur @relation(fields: [id_prof], references: [id])
-  etudiant       Etudiant @relation(fields: [id_etudiant], references: [id])
+  id_professeur  Int      
+  professeur       Professeur @relation(fields: [id_professeur], references: [id])
 }

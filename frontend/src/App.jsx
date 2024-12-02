@@ -20,6 +20,7 @@ import InscriptionProf from './Pages/prof/Inscription/InscriptionProf.jsx';
 import { AccueilProf } from './Pages/prof/Accueil/AccueilProf.jsx';
 import CalendarPage from './Pages/prof/gerercalendrier/calendrier.jsx';
 import socket from './tools/socket.js';
+import HomePage from './Pages/Etudiants/TestNiveau/AcueilTest.jsx';
 
 socket.emit('message-client', "hi")
 function App() {
@@ -45,6 +46,7 @@ function App() {
         <Route path='/prof/signin' element={<InscriptionProf/>} />
         <Route path='/prof/home' element={<AccueilProf/>} />
         <Route path='/prof/calendar' element={<CalendarPage/>} />
+        <Route path='/test/home' element={<HomePage/>} />
       </Routes>
     </BrowserRouter>
   )

@@ -53,9 +53,22 @@ CREATE TABLE "Etudiant" (
     "nom" TEXT NOT NULL,
     "prenoms" TEXT NOT NULL,
     "mail_etudiant" TEXT NOT NULL,
-    "id_groupe" INTEGER NOT NULL,
+    "motDePasse" TEXT NOT NULL,
+    "id_groupe" INTEGER,
+    "id_professeur" INTEGER NOT NULL,
 
     CONSTRAINT "Etudiant_pkey" PRIMARY KEY ("id")
+);
+
+-- CreateTable
+CREATE TABLE "Payment" (
+    "id" SERIAL NOT NULL,
+    "montant" DOUBLE PRECISION NOT NULL,
+    "date" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    "id_etudiant" INTEGER NOT NULL,
+    "id_professeur" INTEGER NOT NULL,
+
+    CONSTRAINT "Payment_pkey" PRIMARY KEY ("id")
 );
 
 -- AddForeignKey
@@ -74,4 +87,7 @@ ALTER TABLE "Cours" ADD CONSTRAINT "Cours_id_professeur_fkey" FOREIGN KEY ("id_p
 ALTER TABLE "Cours" ADD CONSTRAINT "Cours_id_niveau_fkey" FOREIGN KEY ("id_niveau") REFERENCES "Niveau"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
 
 -- AddForeignKey
-ALTER TABLE "Etudiant" ADD CONSTRAINT "Etudiant_id_groupe_fkey" FOREIGN KEY ("id_groupe") REFERENCES "Groupe"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
+ALTER TABLE "Payment" ADD CONSTRAINT "Payment_id_etudiant_fkey" FOREIGN KEY ("id_etudiant") REFERENCES "Etudiant"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
+
+-- AddForeignKey
+ALTER TABLE "Payment" ADD CONSTRAINT "Payment_id_professeur_fkey" FOREIGN KEY ("id_professeur") REFERENCES "Professeur"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
